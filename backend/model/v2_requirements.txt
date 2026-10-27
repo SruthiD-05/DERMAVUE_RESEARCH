@@ -1,0 +1,9 @@
+tensorflow-cpu
+scikit-learn
+xgboost
+opencv-python
+scikit-image
+numpy
+pandas
+matplotlib
+openpyxl

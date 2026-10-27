@@ -1,0 +1,4 @@
+# The safe unavailable-model adapter uses Python's standard library only.
+# The supplied V2 source requirements are documented at backend/model/v2_requirements.txt.
+# TensorFlow and the other V2 dependencies are intentionally not installed because
+# the supplied archive contains no checkpoint and no verified inference entrypoint.

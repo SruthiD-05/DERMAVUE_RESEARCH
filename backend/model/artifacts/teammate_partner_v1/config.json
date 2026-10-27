@@ -1,0 +1,67 @@
+{
+  "IMG": 384,
+  "DX": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "MAL_IDX": [
+    0,
+    1,
+    4
+  ],
+  "CNN_NAMES": [
+    "EffNet-B4",
+    "EffNetV2-S",
+    "EffNet-B4-s7"
+  ],
+  "TTA_VIEWS": 8,
+  "LOCS": [
+    "abdomen",
+    "acral",
+    "back",
+    "chest",
+    "ear",
+    "face",
+    "foot",
+    "genital",
+    "hand",
+    "lower extremity",
+    "neck",
+    "scalp",
+    "trunk",
+    "unknown",
+    "upper extremity"
+  ],
+  "UV_SITES": [
+    "back",
+    "face",
+    "neck",
+    "upper",
+    "scalp",
+    "chest",
+    "ear"
+  ],
+  "AGE_MED": 50.0,
+  "STACK_COEF": [
+    0.3666372629032838,
+    0.531974235489321,
+    0.19967478554048093,
+    0.44336393026293397
+  ],
+  "STACK_INTERCEPT": 0.8912946025506177,
+  "T_ACC": 0.4999999999999998,
+  "T_SCR": 0.17999999999999994,
+  "TEST_METRICS": {
+    "per_image_accuracy": 89.34,
+    "per_image_roc_auc": 0.9376,
+    "per_lesion_accuracy": 91.7,
+    "per_lesion_roc_auc": 0.9522,
+    "test_images": 1510,
+    "test_lesions": 1121
+  }
+}

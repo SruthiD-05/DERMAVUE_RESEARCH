@@ -1,0 +1,18 @@
+{
+  "model_version": "teammate_partner_v1",
+  "data_provenance": "genuine",
+  "evaluation_gate_passed": false,
+  "serving_enabled": false,
+  "release_decision": "blocked_pending_independent_patient_level_and_duplicate_audit",
+  "raw_image_accuracy": 0.8973509933774835,
+  "raw_image_roc_auc": 0.9334432,
+  "lesion_level_accuracy": 0.9170383586083853,
+  "lesion_level_roc_auc": 0.9521534,
+  "artifacts": {
+    "config.json": "d5ab91d6cac02264a126f318d58d0696972abcdc1ece281fc8647ed7a3e77936",
+    "EffNet-B4.keras": "4f748c53920fc394b5682442208c4b60116796cf14f4c3e563052d2d6686aa3a",
+    "EffNet-B4-s7.keras": "28ea3c491a344b62cfb4eaab24e2d874df4fe34f6ff124fec3e6acf4c95cc358",
+    "EffNetV2-S.keras": "6ed23c6125a35ac171908f91ba479efb7f3e44bcf87de2f5ac336fddaef79f0c",
+    "xgb_tabular.json": "88ef813e4bc81b36856a53cd6a64aeb4fcc576660d499290136575abc55c1116"
+  }
+}

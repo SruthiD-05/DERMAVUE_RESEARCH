@@ -1,0 +1,10 @@
+'use client'
+
+import { useMemo } from 'react'
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
+import { useCases, usePatients } from '@/hooks/use-data'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
+import { PageHeader } from '@/components/common/page-header'
+
+export function InsightsView() { const { cases } = useCases(); const { patients } = usePatients(); const status = useMemo(() => Object.entries(cases.reduce<Record<string, number>>((a, c) => { a[c.status] = (a[c.status] || 0) + 1; return a }, {})).map(([status, count]) => ({ status, count })), [cases]); const reviewed = cases.filter((c) => c.reviewStatus === 'reviewed').length; return <div className="space-y-6"><PageHeader eyebrow="Workspace insights" title="A compact view of your review pipeline" description="These are operational counts from the current local workspace, not clinical performance metrics." /><div className="grid gap-4 sm:grid-cols-3"><Card><CardContent className="p-5"><p className="text-sm text-muted-foreground">Patients</p><p className="mt-2 text-3xl font-semibold">{patients.length}</p></CardContent></Card><Card><CardContent className="p-5"><p className="text-sm text-muted-foreground">Cases</p><p className="mt-2 text-3xl font-semibold">{cases.length}</p></CardContent></Card><Card><CardContent className="p-5"><p className="text-sm text-muted-foreground">Reviewed</p><p className="mt-2 text-3xl font-semibold">{reviewed}</p></CardContent></Card></div><Card><CardHeader><CardTitle>Cases by status</CardTitle></CardHeader><CardContent><ChartContainer config={{ count: { label: 'Cases', color: 'var(--primary)' } }} className="h-[280px] w-full"><BarChart data={status}><CartesianGrid vertical={false} /><XAxis dataKey="status" tickLine={false} axisLine={false} /><YAxis allowDecimals={false} /><ChartTooltip content={<ChartTooltipContent />} /><Bar dataKey="count" fill="var(--color-count)" radius={4} /></BarChart></ChartContainer></CardContent></Card></div> }

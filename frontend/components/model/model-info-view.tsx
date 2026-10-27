@@ -1,0 +1,15 @@
+'use client'
+
+import { useModelInfo, useModelStatus } from '@/hooks/use-data'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { PageHeader } from '@/components/common/page-header'
+import { ResearchDisclaimer } from '@/components/common/research-disclaimer'
+
+export function ModelInfoView() {
+  const { status } = useModelStatus(); const { info } = useModelInfo()
+  const checkpointState = status?.checkpointLoaded ? 'yes' : status?.backendConfigured ? 'no' : 'not reported'
+  const badge = !status ? 'loading' : !status.backendConfigured ? 'Backend not configured' : status.researchMode && status.inferenceAvailable ? 'Local research inference available' : status.releaseState === 'serving-disabled' ? 'Model installed — serving disabled' : status.inferenceAvailable ? 'Model ready' : status.state
+  const metrics = info?.reportedMetrics || status?.reportedMetrics
+  return <div className="space-y-6"><PageHeader eyebrow="Model information" title="Inference transparency" description="Connection and capability information reported by the configured backend." /><ResearchDisclaimer /><Card><CardHeader><CardTitle>Connection status</CardTitle></CardHeader><CardContent className="space-y-2 text-sm"><div className="flex items-center gap-2"><Badge variant={status?.inferenceAvailable ? 'default' : 'secondary'}>{badge}</Badge><span>{status?.message || 'Checking model status…'}</span></div><p className="text-muted-foreground">Backend configured: {status?.backendConfigured ? 'yes' : 'no'} · Artifacts: {status?.artifactState || (status?.backendConfigured ? 'not reported' : 'not configured')} · Checkpoint loaded: {checkpointState} · Inference available: {status?.inferenceAvailable ? 'yes' : status?.backendConfigured ? 'no' : 'not reported'}</p></CardContent></Card><Card><CardHeader><CardTitle>Verified backend model details</CardTitle></CardHeader><CardContent className="grid gap-4 sm:grid-cols-2 text-sm"><p><span className="text-muted-foreground">Name:</span> {info?.name || status?.modelName || 'Not reported'}</p><p><span className="text-muted-foreground">Version:</span> {info?.version || status?.modelVersion || 'Not reported'}</p><p><span className="text-muted-foreground">Architecture:</span> {info?.architecture || status?.architecture || 'Not reported'}</p><p><span className="text-muted-foreground">Metadata source:</span> {info?.metadataSource || status?.metadataSource || 'Not reported'}</p><p><span className="text-muted-foreground">Outputs:</span> {info?.returnsProbabilities ? 'Probabilities reported' : info ? 'Malignancy/risk fields reported; class probabilities not reported' : 'Not reported'}</p>{info?.supportedInputs && <p><span className="text-muted-foreground">Inputs:</span> {info.supportedInputs.join(', ')}</p>}{metrics && Object.entries(metrics).map(([key, metric]) => <p key={key}><span className="text-muted-foreground">{metric.label || key}:</span> {typeof metric.value === 'number' ? `${(metric.value * 100).toFixed(2)}%` : 'Not reported'}</p>)}</CardContent></Card></div>
+}

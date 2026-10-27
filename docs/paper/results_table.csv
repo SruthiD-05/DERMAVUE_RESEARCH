@@ -1,0 +1,3 @@
+task,test_samples,accuracy,macro_f1,melanoma_sensitivity,melanoma_specificity,auroc,auprc,target_accuracy,target_reached
+ham10000_five_class,1998,0.7602602603,0.5326743409,0.3955555556,0.9037653096,0.8943399344,0.5606774323,0.9,false
+binary_melanoma_other_dx_v1,1997,0.8452679019,0.6973935277,0.6547085202,0.8692220970,0.8671644734,0.4742796195,0.9,false

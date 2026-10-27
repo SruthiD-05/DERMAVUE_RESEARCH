@@ -1,0 +1,190 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-geist), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-ink: var(--ink);
+  --color-viewer: var(--viewer);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --shadow-soft: 0 1px 2px rgb(16 28 44 / 0.04), 0 8px 24px -12px rgb(16 28 44 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(16 28 44 / 0.04), 0 18px 40px -18px rgb(16 28 44 / 0.22);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* DERMAVUE palette: navy #101C2C, ink #172536, ivory #F7F8F6, teal #2F817B,
+   emerald #276B62, sage #E5F0EB, blue-gray #7F91A2, border #E4E9EC,
+   amber #D59B42, soft red #C65E60 */
+:root {
+  color-scheme: light;
+  --background: #f7f8f6;
+  --foreground: #101c2c;
+  --card: #ffffff;
+  --card-foreground: #101c2c;
+  --popover: #ffffff;
+  --popover-foreground: #101c2c;
+  --primary: #2f817b;
+  --primary-foreground: #ffffff;
+  --secondary: #e5f0eb;
+  --secondary-foreground: #276b62;
+  --muted: #eef1ef;
+  --muted-foreground: #586a7b;
+  --accent: #e5f0eb;
+  --accent-foreground: #172536;
+  --destructive: #c65e60;
+  --warning: #b07a26;
+  --warning-soft: #f8eedc;
+  --success: #276b62;
+  --success-soft: #e5f0eb;
+  --ink: #172536;
+  --viewer: #0c131d;
+  --border: #e4e9ec;
+  --input: #dbe2e6;
+  --ring: #2f817b;
+  --chart-1: #2f817b;
+  --chart-2: #7f91a2;
+  --chart-3: #d59b42;
+  --chart-4: #276b62;
+  --chart-5: #c65e60;
+  --radius: 0.625rem;
+  --sidebar: #101c2c;
+  --sidebar-foreground: #d5dde4;
+  --sidebar-muted: #7f91a2;
+  --sidebar-primary: #6fc1b8;
+  --sidebar-primary-foreground: #101c2c;
+  --sidebar-accent: #172536;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 0.07);
+  --sidebar-ring: #6fc1b8;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0d1622;
+  --foreground: #e8edf1;
+  --card: #131f2e;
+  --card-foreground: #e8edf1;
+  --popover: #172536;
+  --popover-foreground: #e8edf1;
+  --primary: #4fa39b;
+  --primary-foreground: #0d1622;
+  --secondary: #1b3335;
+  --secondary-foreground: #9fd4cc;
+  --muted: #172536;
+  --muted-foreground: #95a5b4;
+  --accent: #1b3335;
+  --accent-foreground: #e8edf1;
+  --destructive: #d67a7c;
+  --warning: #e0b066;
+  --warning-soft: #3a2f1c;
+  --success: #6fc1b8;
+  --success-soft: #1b3335;
+  --ink: #e8edf1;
+  --viewer: #070c12;
+  --border: rgb(255 255 255 / 0.08);
+  --input: rgb(255 255 255 / 0.12);
+  --ring: #4fa39b;
+  --chart-1: #4fa39b;
+  --chart-2: #8fa1b2;
+  --chart-3: #e0b066;
+  --chart-4: #6fc1b8;
+  --chart-5: #d67a7c;
+  --sidebar: #0a121c;
+  --sidebar-foreground: #d5dde4;
+  --sidebar-muted: #7f91a2;
+  --sidebar-primary: #6fc1b8;
+  --sidebar-primary-foreground: #0a121c;
+  --sidebar-accent: #131f2e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 0.06);
+  --sidebar-ring: #6fc1b8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-balance;
+  }
+}
+
+@utility canvas-glow {
+  background-image:
+    radial-gradient(60rem 30rem at 85% -10%, color-mix(in oklab, var(--primary) 9%, transparent), transparent 70%),
+    radial-gradient(40rem 24rem at -10% 10%, color-mix(in oklab, var(--chart-2) 8%, transparent), transparent 70%);
+}
+
+@utility grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@utility hairline-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@media print {
+  body {
+    background: white !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
